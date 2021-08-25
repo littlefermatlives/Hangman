@@ -28,8 +28,12 @@ for i in range(word_length):
 # cnt = 0
 while not is_game_end:
     guess = input("Enter your character ->")
+    guess = guess.lower()
     pos = chosen_word.find(guess)
-    if pos != -1 and display[pos] == '_':
+    if pos != -1 and display[pos] != '_':
+        print("You have already guessed this letter")
+        print(''.join(display))
+    elif pos != -1 and display[pos] == '_':
         print("Your guess is correct!")
         print(stages[lives])
         for i in range(word_length):
